@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="/static/main.js"></script>
+    <title>Shrapnel</title>
+</head>
+<body>
+<header class="w3-container w3-padding-8 w3-blue">
+    <h2>Shrapnel</h2>
+</header>
+<main class="w3-container">
+    <h3>Download File</h3>
+    <div class="w3-container w3-margin-64" action="download/" method="post">
+        <input class="w3-input" name="url" type="url" placeholder="Enter url here ...">
+        <input class="w3-input" name="filename"  placeholder="Filename.mp4">
+        <button class="w3-btn w3-padding-4 w3-round w3-red" onclick="download_url()">Go</button>
+    </div>
+    <hr/>
+    <ul class="w3-ul w3-card" id="progress-display"></ul>
+    <ul class="w3-ul w3-card" id="dwnld-display"></ul>
+    <div id="samples" class="w3-hide">
+        <li class="w3-row" id="dwnld">
+            <div class="w3-col l10 m10 s10">
+                <p id="url"></p>
+            </div>
+            <div class="w3-col w3-right l2 m2 s2">
+                <p>
+                    <a class="w3-btn w3-blue w3-round-large w3-large" id="download">&downarrow;</a>
+                    <a class="w3-btn w3-green w3-round-large w3-large" id="multi-download">&downdownarrows;</a>
+                </p>
+            </div>
+        </li>
+        <li class="w3-row" id="progress">
+            <p id="progress_url"></p>
+            <div class="w3-progress-container">
+                <p><div id="progress-view" class="w3-progressbar w3-light-blue"></div></p>
+            </div>
+        </li>
+    </div>
+</main>
+</body>
+</html>
