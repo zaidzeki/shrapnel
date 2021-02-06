@@ -1,9 +1,11 @@
+from time import sleep
 from flask import Flask, render_template, request, jsonify
 from socket import gethostname
 from nanorm import *
-from shrapnel import shred
+from shrapnel import shred, download_url
 import os
 import json
+import _thread
 
 set_db_name('markI.db')
 
@@ -69,6 +71,15 @@ def split_download(_id):
 	return render_template('split_download.html', files=files)
 
 
+def downloader():
+	while True:
+		links = Link.query().filter(progress=100, operator='<').all()
+		for link in links:
+			download_url(link.url, 'static/downloads/' + link.name, link=link)
+		sleep(2)
+
+
 if __name__ == '__main__':
-	print(gethostname())
-	app.run("0.0.0.0", port=int(os.environ["PORT"]),debug=True)
+	_thread.start_new_thread(downloader, ())
+	os.environ['PORT'] = '5885'
+	app.run("0.0.0.0", port=int(os.environ['PORT']), debug=True)
