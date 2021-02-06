@@ -81,5 +81,4 @@ def downloader():
 
 if __name__ == '__main__':
 	_thread.start_new_thread(downloader, ())
-	os.environ['PORT'] = '5885'
 	app.run("0.0.0.0", port=int(os.environ['PORT']), debug=True)
