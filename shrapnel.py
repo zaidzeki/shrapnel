@@ -37,7 +37,7 @@ def merge(filename, output_folder):
 
 def download_url(url, filename, buffer_size=1024 * 1024 * 25, link=None):
 	s = requests.session()
-	req = s.get(url, stream=True)
+	req = s.get(url, stream=True, allow_redirects=True)
 	gen = req.iter_content(buffer_size)
 	fp = open(filename, 'wb+')
 	downloaded = 0
