@@ -43,9 +43,8 @@ def download_url(url, filename, buffer_size=1024 * 1024 * 25, link=None):
 	downloaded = 0
 	for data in gen:
 		downloaded += len(data)
-		if link is not None:
-			link.progress = (downloaded*100) // total
-			link.save()
 		fp.write(data)
 		fp.flush()
+	link.progress = 100
+	link.save()
 	fp.close()
