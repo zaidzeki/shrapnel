@@ -38,11 +38,15 @@ def merge(filename, output_folder):
 def download_url(url, filename, buffer_size=1024 * 1024 * 25, link=None):
 	s = requests.session()
 	req = s.get(url, stream=True, allow_redirects=True)
+	total = int(req.headers.get('Content-Length', -1))
 	gen = req.iter_content(buffer_size)
 	fp = open(filename, 'wb+')
 	downloaded = 0
 	for data in gen:
 		downloaded += len(data)
+		if link is not None and total != -1:
+			link.progress = (downloaded*100) // total
+			link.save()
 		fp.write(data)
 		fp.flush()
 	link.progress = 100
