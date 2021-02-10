@@ -103,10 +103,10 @@ def settings():
 
 def downloader():
 	while True:
-		links = Link.query().filter(progress=100, operator='<').all()
+		links = Link.query().filter(progress=0).all()
 		for link in links:
 			_thread.start_new_thread(download_url, (link.url, 'static/downloads/' + link.name, 25*1024*1024, link))
-		sleep(15)
+		sleep(20)
 
 
 if __name__ == '__main__':
