@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="{{ w3css }}"/>
+        <script>
+        var page = 'SETTINGS';
+        </script>
+        <script src="{{ jquery }}"></script>
+        <script src="{{ main }}"></script>
+        <title>Shrapnel</title>
+    </head>
+    <body>
+        <header class="w3-container w3-padding-8 w3-blue w3-navbar">
+            <h2>Shrapnel</h2>
+            <li><a href="/">Home</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </header>
+        <main class="w3-container w3-margin-16 w3-centered">
+            <div class="w3-container w3-blue">
+                <h2>Settings</h2>
+            </div>
+            <div class="w3-container w3-card-4 w3-margin-8 w3-padding-8">
+                <label class="w3-label w3-text-teal"><b>Token</b></label>
+                <input class="w3-input w3-border w3-light-grey" type="number" name="buffer_size" data-type="setting">
+                <input class="w3-check" type="checkbox" name="compression" data-type="setting">
+                <label class="w3-validate">Compression</label>
+            </div>
+            <div class="w3-container w3-card-4 w3-margin-8 w3-padding-8">
+                <ul class="w3-ul  w3-round" id='tokens'></ul>
+            </div>
+            <div class="w3-card-4 w3-margin-bottom w3-padding-8 w3-round">
+                <div class="w3-margin-8">
+                    <input class="w3-input w3-border w3-light-grey" name="token" autocomplete="off">
+                    <button class="w3-btn w3-blue" onclick="addToken()">Add</button>
+                </div>
+            </div>
+            <button class="w3-btn w3-blue w3-round" onclick="save_settings()">Save</button>
+        </main>
+        <div class="w3-hide" id="templates">
+            <li id="token-template" class="w3-padding-8">
+                <span class="w3-closebtn w3-padding" onclick="deleteToken(this)">x</span><br/>
+                <input class="w3-check" id="admin" type="checkbox" onclick="toggleTokenState(this)">
+                <label class="w3-validate" id="token"></label><br/>
+            </li>
+        </div>
+    </body>
+</html>

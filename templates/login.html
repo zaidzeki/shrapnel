@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/static/css/w3.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
-    <script src="/static/js/jquery-3.4.1.min.js"></script>
-    <script src="/static/js/main.js"></script>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="{{ w3css }}"/>
+    <script>
+        var page = 'LOGIN';
+    </script>
+    <script src="{{ jquery }}"></script>
     <title>Shrapnel</title>
 </head>
 <body>
@@ -16,9 +18,12 @@
     <div class="w3-container w3-blue">
         <h2>Login</h2>
     </div>
-    <form class="w3-container" action="/" method="post">
+    <form class="w3-container" action="/login" method="post">
         <label class="w3-label w3-text-teal"><b>Token</b></label>
-        <input class="w3-input w3-border w3-light-grey" type="text" name="token">
+        <input class="w3-input w3-border w3-light-grey" type="text" name="token" autocomplete="off">
+        {% if error %}
+        <small class="w3-text-red">Incorrect Token</small><br/>
+        {% endif %}
         <button class="w3-btn w3-blue-grey">Authenticate</button>
     </form>
 </main>
