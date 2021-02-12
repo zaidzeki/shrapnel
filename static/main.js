@@ -128,10 +128,17 @@ function load_progress() {
 if (page==='HOME') {
     setInterval(status, 1000);
 } else if (page==='SETTINGS') {
+alert("settings");
         $.ajax({
         url:'/settings_api',
         type:'get',
+error:function (a,b,c) {
+alert(a);
+alert(b);
+alert(c);
+}
         success:function (data) {
+            alert(data);
             data = JSON.parse(data);
             window.data = data;
             for (let key in data) {
