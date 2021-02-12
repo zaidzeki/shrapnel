@@ -287,4 +287,4 @@ if __name__ == '__main__':
 			Shrapnel.shred(args[1])
 			exit()
 	_thread.start_new_thread(downloader, ())
-	app.run("10.42.0.1", port=int(os.environ.get('PORT', 80)), debug=True)
+	app.run("0.0.0.0", port=int(os.environ.get('PORT', 5885)), debug=True)
