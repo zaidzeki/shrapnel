@@ -13,3 +13,7 @@ deploy:
   provider: scalingo
   username: ketivah859
   password: killgore
+  on:
+    branches:    # ← new!
+      only:      # ← new!
+        - main # ← new!
