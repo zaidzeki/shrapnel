@@ -14,4 +14,4 @@ deploy:
   username: ketivah859
   password: killgore
   on:
-    branch:main
+    branch: main
