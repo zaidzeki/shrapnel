@@ -9,3 +9,8 @@ install:
   - pip3 install nanorm
 script:
   - echo "Success!"
+deploy:
+  provider: scalingo
+  username: ketivah859
+  password: killgore
+  on: main
