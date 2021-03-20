@@ -13,4 +13,3 @@ deploy:
   provider: scalingo
   username: ketivah859
   password: killgore
-  on: main
