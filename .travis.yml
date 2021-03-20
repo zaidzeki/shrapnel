@@ -7,3 +7,5 @@ env:
 install:
   - pip3 install -q Flask==$FLASK
   - pip3 install nanorm
+script:
+  echo "Success!"
